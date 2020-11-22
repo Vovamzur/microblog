@@ -15,7 +15,6 @@ Placed in client folder. Available commands:
 npm i - install dependencies
 npm start - run client
 npm test - run test
-
 ```
 
 # Selenium tests
