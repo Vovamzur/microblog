@@ -1,0 +1,11 @@
+#endpoint: ''
+endpoint: https://eu1.prisma.sh/volodymyr-mazur/my-chat-backend/dev
+
+
+datamodel: datamodel.prisma
+generate:
+  - generator: javascript-client
+    output: ../src/generated/prisma-client
+hooks:
+  post-deploy:
+    - prisma generate    
