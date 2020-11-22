@@ -5,7 +5,7 @@ Coursework for KPI discipline
 Placed in client folder. Available commands:
 ```bash
 npm i - install dependencies
-node run dev - run server
+node start - run client
 npm test - run test
 ```
 
@@ -13,7 +13,7 @@ npm test - run test
 Placed in client folder. Available commands:
 ```bash
 npm i - install dependencies
-npm start - run client
+npm run dev - run server
 npm test - run test
 ```
 
