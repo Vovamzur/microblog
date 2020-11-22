@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReplyItem from "./ReplyItem";
+import { ReplyItem } from "./ReplyItem";
 import ReplyForm from "./ReplyForm";
 
 const ReplyList = ({ messageId, replies, orderBy, filter, variables }) => {
