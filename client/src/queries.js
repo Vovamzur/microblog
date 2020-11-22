@@ -1,7 +1,12 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
 export const MESSAGE_QUERY = gql`
-  query messageQuery($orderBy: MessageOrderByInput, $filter: String, $skip: Int, $first: Int) {
+  query messageQuery(
+    $orderBy: MessageOrderByInput
+    $filter: String
+    $skip: Int
+    $first: Int
+  ) {
     messages(orderBy: $orderBy, filter: $filter, skip: $skip, first: $first) {
       count
       messageList {
@@ -18,7 +23,7 @@ export const MESSAGE_QUERY = gql`
       }
     }
   }
-`
+`;
 
 export const POST_MESSAGE_MUTATION = gql`
   mutation MessageMutation($text: String!) {
@@ -46,7 +51,7 @@ export const POST_REPLY_MUTATION = gql`
       dislikes
     }
   }
-`
+`;
 
 export const POST_LIKE_MUTATION = gql`
   mutation MessageMutation($messageId: ID!) {
@@ -63,7 +68,7 @@ export const POST_LIKE_MUTATION = gql`
       }
     }
   }
-`
+`;
 
 export const POST_DISLIKE_MUTATION = gql`
   mutation MessageMutation($messageId: ID!) {
@@ -80,7 +85,7 @@ export const POST_DISLIKE_MUTATION = gql`
       }
     }
   }
-`
+`;
 
 export const POST_REPLY_LIKE_MUTATION = gql`
   mutation ReplyMutation($replyId: ID!) {
@@ -91,7 +96,7 @@ export const POST_REPLY_LIKE_MUTATION = gql`
       dislikes
     }
   }
-`
+`;
 
 export const POST_REPLY_DISLIKE_MUTATION = gql`
   mutation ReplyMutation($replyId: ID!) {
@@ -100,9 +105,9 @@ export const POST_REPLY_DISLIKE_MUTATION = gql`
       text
       likes
       dislikes
-    } 
+    }
   }
-`
+`;
 
 export const NEW_MESSAGES_SUBSCRIPTION = gql`
   subscription {
@@ -119,7 +124,7 @@ export const NEW_MESSAGES_SUBSCRIPTION = gql`
       }
     }
   }
-`
+`;
 
 export const UPDATED_MESSAGE_SUBSCRIPTION = gql`
   subscription {
@@ -136,7 +141,7 @@ export const UPDATED_MESSAGE_SUBSCRIPTION = gql`
       }
     }
   }
-`
+`;
 
 export const UPDATED_REPLY_SUBSCRIPTION = gql`
   subscription {
@@ -147,4 +152,4 @@ export const UPDATED_REPLY_SUBSCRIPTION = gql`
       dislikes
     }
   }
-`
+`;

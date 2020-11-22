@@ -1,21 +1,23 @@
 async function messages(parent, args, context) {
   const where = args.filter ? { text: args.filter } : {};
 
-  const messageList = await context.prisma.messages({
+  const params = {
     where,
     skip: args.skip,
     first: args.first,
-    orderBy: args.orderBy
-  });
+    ...(args.orderBy === "empty" ? {} : { orderBy: args.orderBy }),
+  };
+
+  const messageList = await context.prisma.messages(params);
 
   const count = await context.prisma
     .messagesConnection({ where })
     .aggregate()
     .count();
 
-  return { messageList, count }
+  return { messageList, count };
 }
 
 module.exports = {
-  messages
-}
+  messages,
+};

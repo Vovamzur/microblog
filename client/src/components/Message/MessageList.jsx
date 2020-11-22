@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Query } from "react-apollo";
+
 import MessageItem from "./MessageItem";
+import { PaginationCustom, MESSAGES_PER_PAGE } from "./Pagination";
 import {
   MESSAGE_QUERY,
   NEW_MESSAGES_SUBSCRIPTION,
@@ -8,10 +10,9 @@ import {
   UPDATED_REPLY_SUBSCRIPTION,
 } from "./../../queries";
 
-const MESSAGES_PER_PAGE = 2;
-
 const MessageList = ({ orderBy, filter }) => {
-  let currentMessageCount = 0;
+  const [currentMessageCount, setCurrentMessageCount] = useState(0);
+
   const _subscribeToNewMessages = (subscribeToMore) => {
     subscribeToMore({
       document: NEW_MESSAGES_SUBSCRIPTION,
@@ -51,27 +52,6 @@ const MessageList = ({ orderBy, filter }) => {
     subscribeToMore({
       document: UPDATED_REPLY_SUBSCRIPTION,
     });
-  };
-
-  const prevPage = (count, refetch) => {
-    if (currentMessageCount > MESSAGES_PER_PAGE) {
-      currentMessageCount -= MESSAGES_PER_PAGE;
-    } else if (count - currentMessageCount > 0) {
-      currentMessageCount = 0;
-    }
-    refetch({ skip: currentMessageCount });
-  };
-
-  const toFirstPage = (refetch) => {
-    currentMessageCount = 0;
-    refetch({ skip: 0 });
-  };
-
-  const nextPage = (count, refetch) => {
-    if (currentMessageCount < count - MESSAGES_PER_PAGE) {
-      currentMessageCount += MESSAGES_PER_PAGE;
-    }
-    refetch({ skip: currentMessageCount });
   };
 
   return (
@@ -117,19 +97,12 @@ const MessageList = ({ orderBy, filter }) => {
                 );
               })}
             </div>
-            {count > MESSAGES_PER_PAGE ? (
-              <div>
-                <button onClick={() => prevPage(count, refetch)}>
-                  previous page
-                </button>
-                <button onClick={() => toFirstPage(refetch)}>
-                  to first page
-                </button>
-                <button onClick={() => nextPage(count, refetch)}>
-                  next page
-                </button>
-              </div>
-            ) : null}
+            <PaginationCustom
+              count={count}
+              refetch={refetch}
+              currentMessageCount={currentMessageCount}
+              setCurrentMessageCount={setCurrentMessageCount}
+            />
           </div>
         );
       }}

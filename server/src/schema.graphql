@@ -4,6 +4,7 @@ type Query {
 }
 
 enum MessageOrderByInput {
+  empty
   likes_DESC
   likes_ASC
   dislikes_DESC
