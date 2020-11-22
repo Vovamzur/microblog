@@ -10,6 +10,7 @@ import { split } from 'apollo-link';
 import { WebSocketLink } from 'apollo-link-ws';
 import { getMainDefinition } from 'apollo-utilities';
 
+import 'semantic-ui-css/semantic.min.css'
 import './index.css';
 
 const wsLink = new WebSocketLink({
