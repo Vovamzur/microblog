@@ -1,5 +1,5 @@
 async function messages(parent, args, context) {
-  const where = args.filter ? { text: args.filter } : {};
+  const where = args.filter ? { text_contains: args.filter } : {};
 
   const params = {
     where,
