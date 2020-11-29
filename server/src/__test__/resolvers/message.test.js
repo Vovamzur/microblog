@@ -1,25 +1,20 @@
 const Message = require("../../resolvers/Message");
 
-let context;
-
-const REPLIES = ["reply1", "reply2"];
-
-beforeAll(() => {
-  context = {
+it("should return message's replies", async () => {
+  const replies = ["reply1", "reply2"];
+  const context = {
     prisma: {
       message() {
         return {
           async replies() {
-            return REPLIES;
+            return replies;
           },
         };
       },
     },
   };
-});
 
-it("should return message's replies", async () => {
   const messageReplies = await Message.replies({}, undefined, context);
 
-  expect(messageReplies).toBe(REPLIES);
+  expect(messageReplies).toBe(replies);
 });
