@@ -8,7 +8,7 @@ function postMessage(parent, args, context, info) {
 
 async function postReply(parent, args, context, info) {
   const messageExists = await context.prisma.$exists.message({
-    id: args.messageId
+    id: args.messageId,
   });
 
   if (!messageExists) {
@@ -19,7 +19,7 @@ async function postReply(parent, args, context, info) {
     text: args.text,
     likes: 0,
     dislikes: 0,
-    message: { connect: { id: args.messageId } }
+    message: { connect: { id: args.messageId } },
   });
 }
 
@@ -32,12 +32,12 @@ async function addLikeToMessage(parent, args, context, info) {
 
   return context.prisma.updateMessage({
     data: {
-      likes: message.likes + 1
+      likes: message.likes + 1,
     },
     where: {
-      id: args.messageId
-    }
-  })
+      id: args.messageId,
+    },
+  });
 }
 
 async function addDislikeToMessage(parent, args, context, info) {
@@ -49,12 +49,12 @@ async function addDislikeToMessage(parent, args, context, info) {
 
   return context.prisma.updateMessage({
     data: {
-      dislikes: message.dislikes + 1
+      dislikes: message.dislikes + 1,
     },
     where: {
-      id: args.messageId
-    }
-  })
+      id: args.messageId,
+    },
+  });
 }
 
 async function addLikeToReply(parent, args, context, info) {
@@ -66,12 +66,12 @@ async function addLikeToReply(parent, args, context, info) {
 
   return context.prisma.updateReply({
     data: {
-      likes: reply.likes + 1
+      likes: reply.likes + 1,
     },
     where: {
-      id: args.replyId
-    }
-  })
+      id: args.replyId,
+    },
+  });
 }
 
 async function addDislikeToReply(parent, args, context, info) {
@@ -83,12 +83,12 @@ async function addDislikeToReply(parent, args, context, info) {
 
   return context.prisma.updateReply({
     data: {
-      dislikes: reply.dislikes + 1
+      dislikes: reply.dislikes + 1,
     },
     where: {
-      id: args.replyId
-    }
-  })
+      id: args.replyId,
+    },
+  });
 }
 
 module.exports = {
@@ -97,5 +97,5 @@ module.exports = {
   addLikeToMessage,
   addDislikeToMessage,
   addLikeToReply,
-  addDislikeToReply
-}
+  addDislikeToReply,
+};

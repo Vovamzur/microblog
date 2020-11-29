@@ -1,6 +1,14 @@
+const { request } = require("graphql-request");
 
-const sum = (a, b) => a + b
+const { startSever } = require("../startServer");
 
-it('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+let getHost = () => "";
+
+beforeAll(async () => {
+  const app = await startSever();
+  const { port } = app.address();
+
+  getHost = () => `http://127.0.0.1:${port}`;
 });
+
+it("should returns messages", async () => {});
