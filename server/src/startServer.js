@@ -20,7 +20,7 @@ async function startSever() {
   });
   console.log("Server is running on http://localhost:4000");
 
-  return app;
+  return { server, app };
 }
 
 module.exports = {
