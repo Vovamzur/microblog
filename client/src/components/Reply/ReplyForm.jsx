@@ -24,6 +24,7 @@ const ReplyForm = ({ messageId, toggleForm, variables }) => {
     <div className="form-wrapper">
       <div className="input-wrapper">
         <TextArea
+          id="reply-input"
           onChange={(e) => setText(e.target.value)}
           placeholder="Enter your message here..."
           autoFocus
@@ -38,7 +39,7 @@ const ReplyForm = ({ messageId, toggleForm, variables }) => {
           _updateStoreAfterAddingReply(store, postReply, messageId);
         }}
       >
-        {(postMutation) => <Button onClick={postMutation}>Send</Button>}
+        {(postMutation) => <Button id="add-reply-button" onClick={postMutation}>Send</Button>}
       </Mutation>
     </div>
   );

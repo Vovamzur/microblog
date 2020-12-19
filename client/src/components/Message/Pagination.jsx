@@ -21,8 +21,8 @@ const PaginationCustom = ({
     <div className="msg-pagination">
       <Pagination
         className="pagination"
-        activePage={currentMessageCount / MESSAGES_PER_PAGE + 1}
-        totalPages={count / MESSAGES_PER_PAGE}
+        activePage={Math.ceil(currentMessageCount / MESSAGES_PER_PAGE + 1)}
+        totalPages={Math.ceil(count / MESSAGES_PER_PAGE)}
         onPageChange={onPageChange}
       />
     </div>

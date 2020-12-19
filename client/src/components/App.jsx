@@ -21,7 +21,7 @@ const App = () => {
           />
         </div>
 
-        <MessageList orderBy={filter} filter={filterMsgText} />
+        <MessageList orderBy={filter || 'empty'} filter={filterMsgText} />
         <MessageInput />
       </div>
     </div>

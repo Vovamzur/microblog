@@ -14,6 +14,7 @@ export const MESSAGE_QUERY = gql`
         text
         likes
         dislikes
+        createdAt
         replies {
           id
           text
@@ -116,6 +117,7 @@ export const NEW_MESSAGES_SUBSCRIPTION = gql`
       text
       likes
       dislikes
+      createdAt
       replies {
         id
         text
@@ -133,6 +135,7 @@ export const UPDATED_MESSAGE_SUBSCRIPTION = gql`
       text
       likes
       dislikes
+      createdAt
       replies {
         id
         text

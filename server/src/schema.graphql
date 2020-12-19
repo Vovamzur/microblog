@@ -38,6 +38,7 @@ type Message {
   text: String!
   likes: Int!
   dislikes: Int!
+  createdAt: String!
   replies: [Reply]
 }
 

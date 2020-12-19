@@ -195,7 +195,7 @@ mutation {
 }
 `;
 
-it("should add like to reply", async () => {
+it("should add dislike to reply", async () => {
   const [{ id: replyId, dislikes }] = await prisma.replies();
   const mutation = generatePostReplyDislikeMutation({ replyId });
 

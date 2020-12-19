@@ -33,7 +33,7 @@ const orderFilterOptions = [
 ];
 
 const buildFilter = ({ order, field }) => {
-  return (order && field) ? [field, order].join("_") : 'empty';
+  return (order && field) ? [field, order].join("_") : 'createdAt_DESC';
 };
 
 const Filter = ({ setFilter }) => {
