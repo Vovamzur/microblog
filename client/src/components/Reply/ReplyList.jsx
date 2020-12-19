@@ -8,6 +8,7 @@ const ReplyList = ({ messageId, replies, orderBy, filter, variables }) => {
   return (
     <div className="reply-list">
       <button
+        id="reply-button"
         className="reply-button"
         onClick={() => toggleForm(!showReplyForm)}
       >

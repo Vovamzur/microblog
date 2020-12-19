@@ -27,7 +27,7 @@ const MessageItem = ({ id, text, likes, dislikes, replies, variables, createdAt 
               />
             )}
           </Mutation>
-          <span>{likes}</span>
+          <span id="likes-count">{likes}</span>
         </div>
         <div>
           <Mutation
@@ -44,7 +44,7 @@ const MessageItem = ({ id, text, likes, dislikes, replies, variables, createdAt 
               />
             )}
           </Mutation>
-          <span>{dislikes}</span>
+          <span id="dislikes-count">{dislikes}</span>
         </div>
       </Card.Description>
     </Card.Content>

@@ -21,6 +21,7 @@ const ReplyItem = ({ id, text, likes, dislikes }) => (
           >
             {(postMutation) => (
               <img
+                id="like-button"
                 className="rating-icon"
                 src={like}
                 alt="like"
@@ -28,7 +29,7 @@ const ReplyItem = ({ id, text, likes, dislikes }) => (
               />
             )}
           </Mutation>
-          <span>{likes}</span>
+          <span id="likes-count">{likes}</span>
         </div>
         <div>
           <Mutation
@@ -37,6 +38,7 @@ const ReplyItem = ({ id, text, likes, dislikes }) => (
           >
             {(postMutation) => (
               <img
+                id="dislike-button"
                 className="rating-icon"
                 src={dislike}
                 alt="dislike"
@@ -44,7 +46,7 @@ const ReplyItem = ({ id, text, likes, dislikes }) => (
               />
             )}
           </Mutation>
-          <span>{dislikes}</span>
+          <span id="dislikes-count">{dislikes}</span>
         </div>
       </Card.Description>
     </Card.Content>
