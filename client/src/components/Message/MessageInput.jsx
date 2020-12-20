@@ -9,7 +9,7 @@ const MessageInput = () => {
 
   const onSubmit = (postMutation) => {
     if (!text) {
-      alert("Your messsage is empty!");
+      alert("Your post is empty!");
       return;
     }
 
@@ -25,6 +25,7 @@ const MessageInput = () => {
           className="msg-input"
           size="large"
           type="text"
+          maxLength="500"
           placeholder="Enter your message here..."
           value={text}
           onChange={(e) => setText(e.target.value)}

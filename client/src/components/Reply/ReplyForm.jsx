@@ -20,6 +20,16 @@ const ReplyForm = ({ messageId, toggleForm, variables }) => {
     toggleForm(false);
   };
 
+  const onSubmit = (postMutation) => {
+    if (!text) {
+      alert("Your reply is empty!");
+      return;
+    }
+
+    postMutation();
+    setText("");
+  };
+
   return (
     <div className="form-wrapper">
       <div className="input-wrapper">
@@ -28,6 +38,7 @@ const ReplyForm = ({ messageId, toggleForm, variables }) => {
           onChange={(e) => setText(e.target.value)}
           placeholder="Enter your message here..."
           autoFocus
+          maxLength="500"
           value={text}
           cols="25"
         />
@@ -39,7 +50,7 @@ const ReplyForm = ({ messageId, toggleForm, variables }) => {
           _updateStoreAfterAddingReply(store, postReply, messageId);
         }}
       >
-        {(postMutation) => <Button id="add-reply-button" onClick={postMutation}>Send</Button>}
+        {(postMutation) => <Button id="add-reply-button" onClick={() => onSubmit(postMutation)}>Send</Button>}
       </Mutation>
     </div>
   );
